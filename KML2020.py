@@ -4,7 +4,6 @@ from PyQt5.QtCore import Qt
 import os
 import pandas as pd
 import numpy as np
-import math
 import xml.dom.minidom 
 import zipfile
 
@@ -308,8 +307,8 @@ class Ui_MainWindow(QMainWindow):
                     sector_split.append(data['lat'])
                     sector_split.append(0)
                 for i in azimuth_split:
-                    sector_split.append(data['lon'] + math.sin(math.radians(i))*data2['img_len'])
-                    sector_split.append(data['lat'] + math.cos(math.radians(i))*data2['img_len'])
+                    sector_split.append(data['lon'] + np.sin(np.radians(i))*data2['img_len'])
+                    sector_split.append(data['lat'] + np.cos(np.radians(i))*data2['img_len'])
                     sector_split.append(0)
     
                 if data['bw'] != 360:
